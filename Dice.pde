@@ -1,10 +1,12 @@
 void setup()
 {
 	noLoop();
+	size(500, 500);
+	textAllign(CENTER);
 }
 void draw()
 {
-	//your code here
+	background(0, 0, 51)
 }
 void mousePressed()
 {
