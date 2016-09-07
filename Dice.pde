@@ -6,7 +6,10 @@ void setup()
 }
 void draw()
 {
-	background(0, 0, 51)
+	background(0, 0, 51);
+	Die bob;
+	bob = new Die(250, 250);
+	die.show();
 }
 void mousePressed()
 {
@@ -17,6 +20,9 @@ class Die //models one single dice cube
 	//variable declarations here
 	Die(int x, int y) //constructor
 	{
+		mySize = 0;
+		myX = x;
+		myY = y;
 		//variable initializations here
 	}
 	void roll()
