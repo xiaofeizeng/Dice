@@ -1,20 +1,43 @@
+int sum = 0;
 void setup()
 {
   noLoop();
-  size(500, 500);
+  size(470, 500);
   
 }
+
 void draw()
 {
   background(0, 0, 51);
   Die bob;
-  bob = new Die(50, 100);
+  bob = new Die(30, 30);
   bob.show();
-  bob.roll(); //not sure if I'm supposed to have this here and add system.printIn here
+  bob.roll();
+  for (int i = 30; i <= 400; i = i+ 100)
+  {
+      for (int j = 30; j <= 300; j = j + 100)
+      {
+          bob = new Die(i, j);
+          bob.show();
+          bob.roll();
+          sum = sum + bob.diceNum;
+          
+         
+      }
+    }//not sure if I'm supposed to have this here and add system.printIn here
+      textSize(70);
+      textAlign(CENTER);
+      text("Sum:" + sum, 250, 400);
+      
 }
+
+
+
 void mousePressed()
 {
   redraw();
+  sum = 0;
+ 
 }
 class Die //models one single dice cube
 {
@@ -27,11 +50,14 @@ class Die //models one single dice cube
     diceNum = (int)(Math.random()*6)+1;
     //variable initializations here
   }
+  
   void roll()
   {
     diceNum = (int)(Math.random()*6)+1;
+   
     //your code here
   }
+  
   void show()
   {
     fill(204,255,255);
@@ -44,7 +70,7 @@ class Die //models one single dice cube
       stroke(3);
       rect(myX, myY, mySize, mySize, 100);
       fill(0, 0, 0);
-      ellipse(50, 55, 20, 20);
+      ellipse(myX + 50, myY + 55, 20, 20);
       
     }
     else if (diceNum == 2)
@@ -53,8 +79,8 @@ class Die //models one single dice cube
           stroke(3);
           rect(myX, myY, mySize, mySize, 100);
           fill(0, 0, 0);
-          ellipse(22, 36, 20, 20);
-          ellipse(83, 75, 20, 20);
+          ellipse(myX + 22, myY + 36, 20, 20);
+          ellipse(myX + 83, myY + 75, 20, 20);
         }
         else if (diceNum == 3)
         {
@@ -62,9 +88,9 @@ class Die //models one single dice cube
             stroke(3);
             rect(myX, myY, mySize, mySize, 100);
             fill(0, 0, 0);
-            ellipse(25, 29, 20, 20);
-            ellipse(52, 57, 20, 20);
-            ellipse(79, 85, 20, 20);
+            ellipse(myX + 25, myY + 29, 20, 20);
+            ellipse(myX + 52, myY + 57, 20, 20);
+            ellipse(myX + 79, myY + 85, 20, 20);
         }
         else if (diceNum == 4)
         {
@@ -72,10 +98,10 @@ class Die //models one single dice cube
             stroke(3);
             rect(myX, myY, mySize, mySize, 100);
             fill(0, 0, 0);
-            ellipse(24, 27, 20, 20);
-            ellipse(24, 79, 20, 20);
-            ellipse(78, 27, 20, 20);
-            ellipse(78, 79, 20, 20);
+            ellipse(myX + 24, myY + 27, 20, 20);
+            ellipse(myX + 24, myY + 79, 20, 20);
+            ellipse(myX + 78, myY + 27, 20, 20);
+            ellipse(myX + 78, myY + 79, 20, 20);
         }
         else if (diceNum == 5)
         {
@@ -83,11 +109,11 @@ class Die //models one single dice cube
           stroke(3);
           rect(myX, myY, mySize, mySize, 100);
           fill(0, 0, 0);
-          ellipse(24, 29, 20, 20);
-          ellipse(25, 82, 20, 20);
-          ellipse(75, 29, 20, 20);
-          ellipse(52, 55, 20, 20);
-          ellipse(76, 82, 20, 20);
+          ellipse(myX + 24, myY + 29, 20, 20);
+          ellipse(myX + 25, myY + 82, 20, 20);
+          ellipse(myX + 75, myY + 29, 20, 20);
+          ellipse(myX + 52, myY + 55, 20, 20);
+          ellipse(myX + 76, myY + 82, 20, 20);
         }
         else if (diceNum == 6)
         {
@@ -95,17 +121,16 @@ class Die //models one single dice cube
           stroke(3);
           rect(myX, myY, mySize, mySize, 100);
           fill(0, 0, 0);
-          ellipse(27, 26, 20, 20);
-            ellipse(27, 56, 20, 20);
-            ellipse(27, 84, 20, 20);
-            ellipse(76, 26, 20, 20);
-            ellipse(76, 56, 20, 20);
-            ellipse(76, 84, 20, 20);
+            ellipse(myX + 27, myY + 26, 20, 20);
+            ellipse(myX + 27, myY + 56, 20, 20);
+            ellipse(myX + 27, myY + 84, 20, 20);
+            ellipse(myX + 76, myY + 26, 20, 20);
+            ellipse(myX + 76, myY + 56, 20, 20);
+            ellipse(myX + 76, myY + 84, 20, 20);
         }
 
     {}//check out the worksheet
     
-
 
 
   }
